@@ -3,11 +3,16 @@ name: Sync Flare Projects
 on:
   workflow_dispatch:
   workflow_call:
-
-env:
-  SOURCE_FLARE_PROJECT: ${{ github.event.inputs.source_flare_project }}
-  EXCLUDE_DURING_UPDATE: ${{ github.event.inputs.exclude_during_update }}
-  EXCLUDE_DURING_DELETE: ${{ github.event.inputs.exclude_during_delete }}
+    inputs:
+      source_flare_project:
+        required: true
+        type: string
+      exclude_during_update:
+        required: true
+        type: string
+      exclude_during_delete:
+        required: true
+        type: string
 
 jobs:
   sync_folders:
