@@ -2,6 +2,7 @@ name: Sync Flare Projects
 
 on:
   workflow_dispatch:
+  workflow_call:
 
 env:
   SOURCE_FLARE_PROJECT: ${{ github.event.inputs.source_flare_project }}
