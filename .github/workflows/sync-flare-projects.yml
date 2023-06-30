@@ -26,10 +26,10 @@ jobs:
           destinations=$(ls | grep -E "^[a-z]{2,3}(-[a-zA-Z0-9]{2,4})?$")
           for dest in $destinations
           do
-            echo "Syncing updated files from $SOURCE_FLARE_PROJECT to $dest…"
-            rsync -av --exclude={$EXCLUDE_DURING_UPDATE} $SOURCE_FLARE_PROJECT "$dest"
-            echo "Deleting stale filesin $dest…"
-            rsync -av --delete --ignore-existing --exclude={$EXCLUDE_DURING_DELETE} $SOURCE_FLARE_PROJECT "$dest"
+            echo "Syncing updated files from ${{ inputs.source_flare_project }} to $dest…"
+            rsync -av --exclude={${{ inputs.exclude_during_update }}} ${{ inputs.source_flare_project }} "$dest"
+            echo "Deleting stale files in $dest…"
+            rsync -av --delete --ignore-existing --exclude={${{ inputs.exclude_during_delete }}} ${{ inputs.source_flare_project }} "$dest"
           done
 
       - name: Commit changes
