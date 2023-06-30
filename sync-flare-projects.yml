@@ -7,7 +7,6 @@ env:
   SOURCE_FLARE_PROJECT: ${{ github.event.inputs.source_flare_project }}
   EXCLUDE_DURING_UPDATE: ${{ github.event.inputs.exclude_during_update }}
   EXCLUDE_DURING_DELETE: ${{ github.event.inputs.exclude_during_delete }}
-  COMMIT_MESSAGE: ${{ github.event.inputs.commit_message }}
 
 jobs:
   sync_folders:
@@ -32,5 +31,5 @@ jobs:
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
           git add .
-          git commit -m "$COMMIT_MESSAGE"
+          git commit -m "Syncs source Flare project with translated versions"
           git push
