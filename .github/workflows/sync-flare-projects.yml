@@ -34,8 +34,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
+          git config --global user.name "Flare Project Sync Action"
           git add .
           git commit -m "automatic folder syncing: translated Flare projects updated from source"
           git push
