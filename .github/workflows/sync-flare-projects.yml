@@ -33,7 +33,8 @@ jobs:
           done
 
       - name: Commit changes
-        run: |
+        run: |          
+          git config --global user.email "github-actions@madtranslations.com"
           git config --global user.name "Flare Project Sync Action"
           git add .
           git commit -m "automatic folder syncing: translated Flare projects updated from source"
