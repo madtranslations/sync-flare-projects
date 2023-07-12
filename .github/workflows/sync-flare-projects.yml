@@ -27,7 +27,7 @@ jobs:
           for dest in $destinations
           do
             echo "Syncing updated files from ${{ inputs.source_flare_project }} to $dest…"
-            rsync -av --exclude={${{ inputs.exclude_during_update }}} ${{ inputs.source_flare_project }} "$dest"
+            rsync -a --exclude={${{ inputs.exclude_during_update }}} ${{ inputs.source_flare_project }} "$dest"
             echo "Deleting stale files in $dest…"
             rsync -av --delete --ignore-existing --exclude={${{ inputs.exclude_during_delete }}} ${{ inputs.source_flare_project }} "$dest"
           done
