@@ -37,5 +37,5 @@ jobs:
           git config --global user.email "github-actions@madtranslations.com"
           git config --global user.name "Flare Project Sync Action"
           git add .
-          git commit -m "automatic folder syncing: translated Flare projects updated from source"
+          git commit -m "automatic folder syncing: translated Flare projects updated from source" || echo "No changes to commit"
           git push
