@@ -30,7 +30,7 @@ jobs:
           destinations=$(ls | grep -E "^[a-z]{2,3}(-[a-zA-Z0-9]{2,4})?$" | grep -xv "${{ inputs.source_flare_project }}")
           for dest in $destinations
           do
-            if [ -d "${{ inputs.source_flare_project }}" ]; then
+            if [ -d "$dest/${{ inputs.source_flare_project }}" ]; then
               echo "Syncing updated files from ${{ inputs.source_flare_project }} to $dest…"
               rsync -a --exclude={${{ inputs.exclude_during_update }}} ${{ inputs.source_flare_project }} "$dest"
               echo "Deleting stale files in $dest…"
