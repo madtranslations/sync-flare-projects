@@ -1,6 +1,8 @@
 # Sync Flare projects GitHub action
 A GitHub action to keep target language Flare projects up-to-date with the source Flare project. It works by copying all files from the source Flare project that are not handled by the translation process into the translated Flare projects, and then removing any stale files (files that have been deleted in the source project) from the translated projects.
 
+If any target language folder does not already contain the Flare project folder, that target language is skipped and nothing is copied or removed. This could be the case if the repository contains multiple Flare projects that are translated into different target languages.
+
 ## Variables
 - The `source_flare_project` variable specifies the name of the root-level folder containing your **source** Flare project (i.e. the folder containing the `.flprj` file).
 - The `exclude_during_update` variable specifies the files or file types that will not be copied from the source Flare project to the translated projects – this list must match the files that are handled by the translation process.
