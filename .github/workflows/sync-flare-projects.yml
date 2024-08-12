@@ -32,9 +32,9 @@ jobs:
           do
             if [ -d "$dest/${{ inputs.source_flare_project }}" ]; then
               echo "Syncing updated files from ${{ inputs.source_flare_project }} to $dest…"
-              rsync -a --exclude={${{ inputs.exclude_during_update }}} ${{ inputs.source_flare_project }} "$dest"
+              rsync -a --exclude={${{ inputs.exclude_during_update }}} "${{ inputs.source_flare_project }}" "$dest"
               echo "Deleting stale files in $dest…"
-              rsync -av --delete --ignore-existing --exclude={${{ inputs.exclude_during_delete }}} ${{ inputs.source_flare_project }} "$dest"    
+              rsync -av --delete --ignore-existing --exclude={${{ inputs.exclude_during_delete }}} "${{ inputs.source_flare_project }}" "$dest"    
             else
               echo "${{ inputs.source_flare_project }} does not exist in $dest, skipping target language…"
             fi
